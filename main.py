@@ -5,6 +5,8 @@ import token
 import tokenize
 import types
 
+from file_select import file_selector
+
 builtin_function_names = [
     name
     for name, obj in vars(builtins).items()
@@ -70,4 +72,5 @@ def parse(filename: str, theme: Theme):
             print(i.string, end="")
 
 
-parse("test.py", Theme({}))
+string = "\033[94m%P\033[0m\n\033[95m❯ \033[0m"
+parse(file_selector(string), Theme({}))
